@@ -11,7 +11,7 @@ export default function Problem() {
     <section className="section-band section-soft reveal">
       <div className="container">
         <SectionTitle
-          eyebrow="Problem"
+          eyebrow="Problem & Solution"
           title={
             <>
               장소 추천은 많지만,

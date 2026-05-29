@@ -122,7 +122,14 @@ function AppScreen({ type = 'onboarding', label }) {
 }
 
 export default function MockupPlaceholder({ label, variant = 'phone', image, meta, screen }) {
-  const style = image ? { backgroundImage: `url(${image})` } : undefined;
+  const style = image
+    ? {
+        backgroundImage: `url(${image})`,
+        backgroundSize: '100% 100%',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+      }
+    : undefined;
 
   return (
     <figure className={`mockup mockup--${variant}`}>
@@ -135,7 +142,6 @@ export default function MockupPlaceholder({ label, variant = 'phone', image, met
           </div>
         )}
       </div>
-      <figcaption>{label}</figcaption>
     </figure>
   );
 }

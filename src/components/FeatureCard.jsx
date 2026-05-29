@@ -1,6 +1,6 @@
 import MockupPlaceholder from './MockupPlaceholder.jsx';
 
-export default function FeatureCard({ index, title, description, label }) {
+export default function FeatureCard({ index, title, description, label, image }) {
   return (
     <article className="feature-card reveal">
       <div className="feature-card__copy">
@@ -8,7 +8,7 @@ export default function FeatureCard({ index, title, description, label }) {
         <h3>{title}</h3>
         <p>{description}</p>
       </div>
-      <MockupPlaceholder label={label} variant="mini-phone" />
+      <MockupPlaceholder label={label} variant="mini-phone" image={image} />
     </article>
   );
 }

@@ -1,67 +1,97 @@
-import SectionTitle from './SectionTitle.jsx';
-
-const colors = [
-  ['App Black', '#050505'],
-  ['Primary Green', '#3f6b5e'],
-  ['Zinc Surface', '#18181b'],
-  ['Tab Bar', '#2c2c2c'],
-  ['Text Gray', '#999999'],
-  ['Soft Line', '#2f3432'],
+const paletteColors = [
+  ['Main Color', '#3F6B5E'],
+  ['Point Color', '#FFFFFF'],
+  ['Sub Color', '#BCBCBC'],
+  ['Sub Color', '#000000'],
+  ['Surface Color', '#18181B'],
+  ['Surface Color', '#27272A'],
 ];
+
+const fontColors = [
+  ['Main Font', '#FFFFFF'],
+  ['Base Font', '#000000'],
+  ['Muted Font', '#999999'],
+  ['Sub Font', '#52525C'],
+  ['Caption Font', '#71717B'],
+];
+
+const typeScale = [
+  ['장소 추천을 스타일 큐레이션으로 바꾸는 모바일 경험', 'Bold', '30px', '120%', '-2%'],
+  ['장소 추천을 스타일 큐레이션으로 바꾸는 모바일 경험', 'Semibold', '24px', '140%', '-2%'],
+  ['장소 추천을 스타일 큐레이션으로 바꾸는 모바일 경험', 'Semibold', '20px', '140%', '-2%'],
+  ['장소 추천을 스타일 큐레이션으로 바꾸는 모바일 경험', 'Medium', '18px', '140%', '-2%'],
+  ['장소 추천을 스타일 큐레이션으로 바꾸는 모바일 경험', 'Regular', '16px', '140%', '-2%'],
+  ['장소 추천을 스타일 큐레이션으로 바꾸는 모바일 경험', 'Regular', '14px', '140%', '-2%'],
+  ['장소 추천을 스타일 큐레이션으로 바꾸는 모바일 경험', 'Regular', '12px', '140%', '-2%'],
+];
+
+const lightSwatches = new Set(['#FFFFFF', '#BCBCBC', '#999999', '#71717B']);
 
 export default function VisualSystem() {
   return (
-    <section className="section-band section-soft reveal">
-      <div className="container">
-        <SectionTitle eyebrow="Visual System" title="사진 기반 큐레이션을 위한 조용하지만 선명한 시스템" />
-        <div className="system-grid">
-          <article className="system-panel color-panel">
-            <h3>Color Palette</h3>
-            <div className="swatches">
-              {colors.map(([name, hex]) => (
-                <div className="swatch" key={name}>
-                  <i style={{ background: hex }} />
-                  <span>{name}</span>
-                  <small>{hex}</small>
+    <section className="visual-system reveal">
+      <div className="container visual-system__inner">
+        <header className="visual-system__header">
+          <p>Visual System</p>
+          <h2>일관된 무드로 이어지는 디자인 시스템</h2>
+        </header>
+
+        <div className="visual-system__stack">
+          <section className="design-block typography-card">
+            <h3>Typography</h3>
+            <div className="type-hero">
+              <strong>맛과멋</strong>
+              <span>Pretendard / System Sans-Serif</span>
+            </div>
+
+            <div className="type-table type-samples" aria-label="Typography scale">
+              {typeScale.map(([name, weight, size, lineHeight, letterSpacing]) => (
+                <div className="type-row" key={`${size}-${weight}`}>
+                  <strong
+                    style={{
+                      fontSize: size,
+                      fontWeight: weight === 'Bold' ? 700 : weight === 'Semibold' ? 600 : weight === 'Medium' ? 500 : 400,
+                      lineHeight,
+                      letterSpacing: '-0.02em',
+                    }}
+                  >
+                    {name}
+                  </strong>
+                  <span>{weight}</span>
+                  <span>{size}</span>
+                  <span>{lineHeight}</span>
+                  <span>{letterSpacing}</span>
                 </div>
               ))}
             </div>
-          </article>
-          <article className="system-panel type-panel">
-            <h3>Typography</h3>
-            <strong>맛과멋</strong>
-            <p>장소 추천을 스타일 큐레이션으로 바꾸는 모바일 경험</p>
-            <span>Pretendard / system sans-serif</span>
-          </article>
-          <article className="system-panel">
-            <h3>Button</h3>
-            <div className="button-samples">
-              <button>추천 받기</button>
-              <button className="button-secondary">저장하기</button>
-            </div>
-          </article>
-          <article className="system-panel">
-            <h3>Tag / Chip</h3>
-            <div className="tag-row">
-              {['데이트', '빈티지', '혼밥', '카페', '미니멀'].map((tag) => <span className="chip" key={tag}>{tag}</span>)}
-            </div>
-          </article>
-          <article className="system-panel image-card-panel">
-            <h3>Image Card Layout</h3>
-            <div className="image-card-grid">
-              {['Mood Image', 'Place Card', 'Review Image'].map((label) => (
-                <div className="image-card" key={label}>{label}</div>
-              ))}
-            </div>
-          </article>
-          <article className="system-panel card-ui-panel">
-            <h3>Card UI</h3>
-            <div className="sample-place-card">
-              <div />
-              <strong>Low Light Dining</strong>
-              <span>차분한 블랙 착장에 어울리는 와인바</span>
-            </div>
-          </article>
+          </section>
+
+          <section className="design-block palette-card">
+            <h3>Color</h3>
+            <section>
+              <h4>Main / Point / Sub Color</h4>
+              <div className="system-swatches system-swatches--palette">
+                {paletteColors.map(([name, hex]) => (
+                  <div className={`system-swatch ${lightSwatches.has(hex) ? 'is-light' : ''}`} style={{ background: hex }} key={`${name}-${hex}`}>
+                    <strong>{name}</strong>
+                    <span>{hex}</span>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section>
+              <h4>Font Color</h4>
+              <div className="system-swatches system-swatches--font">
+                {fontColors.map(([name, hex]) => (
+                  <div className={`system-swatch ${lightSwatches.has(hex) ? 'is-light' : ''}`} style={{ background: hex }} key={`${name}-${hex}`}>
+                    <strong>{name}</strong>
+                    <span>{hex}</span>
+                  </div>
+                ))}
+              </div>
+            </section>
+          </section>
         </div>
       </div>
     </section>
