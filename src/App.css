@@ -3444,20 +3444,6 @@ main {
   text-shadow: 0 0 42px rgba(15, 225, 116, 0.08);
 }
 
-@media (min-width: 1600px) and (min-height: 850px) {
-  .hero__copy {
-    padding-top: clamp(124px, 13.5vw, 210px);
-  }
-
-  .hero__phone-image--left {
-    bottom: -7%;
-  }
-
-  .hero__phone-image--right {
-    top: 6%;
-  }
-}
-
 @media (max-width: 1180px) {
   .hero__grid,
   .overview__body,
