@@ -1,0 +1,8 @@
+node_modules/
+dist/
+dist-check/
+dist-check-overview/
+dist-check-tail/
+dist-check-tail-line/
+.vite/
+*.log
