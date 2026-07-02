@@ -3445,13 +3445,18 @@ main {
 }
 
 @media (min-width: 2200px) and (min-height: 1200px) {
+  .hero__topline,
+  .hero__grid {
+    transform: translateY(110px);
+  }
+
   .hero__phone-image--left {
     top: 6%;
     bottom: auto;
   }
 
   .hero__phone-image--right {
-    top: 6%;
+    top: -6%;
   }
 }
 
