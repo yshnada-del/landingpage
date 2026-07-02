@@ -207,7 +207,6 @@ main {
 .hero__inner {
   position: relative;
   display: grid;
-  width: min(100% - 48px, 1530px);
   min-height: 100svh;
   grid-template-rows: auto 1fr;
   gap: clamp(28px, 4vw, 62px);
@@ -244,13 +243,13 @@ main {
 
 .hero__grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.94fr) minmax(520px, 1.06fr);
+  grid-template-columns: minmax(0, 0.98fr) minmax(460px, 1.02fr);
   gap: clamp(28px, 5vw, 84px);
   align-items: start;
 }
 
 .hero__copy {
-  padding-top: clamp(80px, 10.8vw, 154px);
+  padding-top: clamp(88px, 12vw, 176px);
 }
 
 .hero__title {
@@ -318,16 +317,16 @@ main {
 }
 
 .hero__phone-image--left {
-  left: -4%;
-  bottom: 10%;
+  left: -2%;
+  bottom: 2%;
   z-index: 2;
-  width: min(31vw, 430px);
+  width: min(29vw, 390px);
   transform: rotate(-8deg);
 }
 
 .hero__phone-image--right {
-  right: -2%;
-  top: 0;
+  right: -8%;
+  top: -5%;
   z-index: 4;
   width: min(38vw, 550px);
   transform: rotate(1deg);
