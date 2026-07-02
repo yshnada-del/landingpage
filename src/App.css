@@ -3444,6 +3444,17 @@ main {
   text-shadow: 0 0 42px rgba(15, 225, 116, 0.08);
 }
 
+@media (min-width: 2200px) and (min-height: 1200px) {
+  .hero__phone-image--left {
+    top: 6%;
+    bottom: auto;
+  }
+
+  .hero__phone-image--right {
+    top: 6%;
+  }
+}
+
 @media (max-width: 1180px) {
   .hero__grid,
   .overview__body,
